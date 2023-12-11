@@ -8,10 +8,11 @@ set -u
 NUMFILES=10
 WRITESTR=AELD_IS_FUN
 WRITEDIR=/tmp/aeld-data
-username=$(cat conf/username.txt)
 
 # The conf directory location called from this script needs to match where the aesd-assignments.mk file puts it
 CONFDIR=/etc/finder-app/conf/
+# Movind this because I overlooked it
+username=$(cat ${CONFDIR}/username.txt)
 
 if [ $# -lt 3 ]
 then
