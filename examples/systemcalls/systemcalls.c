@@ -59,7 +59,6 @@ bool do_exec(int count, ...)
  *   as second argument to the execv() command.
  *
 */
-    printf("\nSecond\n");
     // Verify the path is absolute
     if (!strchr(command[0], '/')) {
         return false;
@@ -115,8 +114,6 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
  *   The rest of the behaviour is same as do_exec()
  *
 */
-
-        printf("\nthird\n");
     // Verify the path is absolute
     if (!strchr(command[0], '/')) {
         return false;
