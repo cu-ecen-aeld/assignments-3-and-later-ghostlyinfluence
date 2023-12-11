@@ -59,10 +59,10 @@ fi
 
 for i in $( seq 1 $NUMFILES)
 do
-	./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
+	writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
 done
 
-OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
+OUTPUTSTRING=$(finder.sh "$WRITEDIR" "$WRITESTR")
 
 # Output to file based on 4.2 request
 echo ${OUTPUTSTRING} > /tmp/assignment4-result.txt
