@@ -1,18 +1,36 @@
 # REFERENCE FINDER-APP MAKEFILE
 
-TARGET = aesdsocket
-SOURCES = aesdsocket.c
-OBJECTS = $(SOURCES:.c=.o)
-CFLAGS = -g -Wall -O3
-CC=$(CROSS_COMPILE)gcc
+P=aesdsocket
+SOURCES= aesdsocket.c
+OBJECTS= $(SOURCES:.c=.o)
 
-# Default target which builds the application
-all: ./$(TARGET)
+all: $(P)
 
-	$(CC) $(CFLAGS) -c $(SOURCES) -o $(OBJECTS)
+debug: CCFLAGS += -DDEBUG -g
+debug: all
 
-# Clean target with removed the application
+$(P).o: $(P).c
+	$(CC) $(CCFLAGS) -Wall -std=c11 -D_POSIX_C_SOURCE=200809L -c $(SOURCES)
+
+$(P): $(OBJECTS)
+	$(CC) $(LDFLAGS) -lpthread -pthread $(OBJECTS) -o $(P)
+
 clean:
-	rm -f $(TARGET) $(OBJECTS)
+	rm -f $(OBJECTS) $(P)
 
-.PHONY: all clean
+# TARGET = aesdsocket
+# SOURCES = aesdsocket.c
+# OBJECTS = $(SOURCES:.c=.o)
+# CFLAGS = -g -Wall -O3
+# CC=$(CROSS_COMPILE)gcc
+
+# # Default target which builds the application
+# all: ./$(TARGET)
+
+# 	$(CC) $(CFLAGS) -c $(SOURCES) -o $(OBJECTS)
+
+# # Clean target with removed the application
+# clean:
+# 	rm -f $(TARGET) $(OBJECTS)
+
+# .PHONY: all clean
