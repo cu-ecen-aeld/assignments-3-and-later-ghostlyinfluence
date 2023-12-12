@@ -3,7 +3,7 @@
 TARGET = aesdsocket
 SOURCES = aesdsocket.c
 OBJECTS = $(SOURCES:.c=.o)
-CFLAGS = -g -Wall -O3 -std=c99
+CFLAGS = -g -Wall -O3
 CC=$(CROSS_COMPILE)gcc
 
 # Default target which builds the application
