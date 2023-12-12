@@ -7,7 +7,7 @@ CFLAGS = -g -Wall -O3
 CC=$(CROSS_COMPILE)gcc
 
 # Default target which builds the application
-all: $(TARGET)
+all: ./$(TARGET)
 
 	$(CC) $(CFLAGS) -c $(SOURCES) -o $(OBJECTS)
 
